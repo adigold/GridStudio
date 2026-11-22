@@ -6,5 +6,14 @@
     <description>Grid Studio updates</description>
     <language>en</language>
     <!-- RELEASES -->
+    <item>
+      <title>Version 1.0.0</title>
+      <pubDate>Sun, 22 Nov 2026 19:01:03 +0000</pubDate>
+      <sparkle:version>1.0.0</sparkle:version>
+      <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<ul><li>First release of Grid Studio</li><li>Turns a monome grid into a MIDI controller (CoreMIDI ports Grid Studio and Grid Studio LEDs)</li><li>Five layouts: Keyboard, 128 notes, Drum pads, Toggles, Faders</li><li>Per pad editor, LED feedback from your DAW, MIDI monitor, mapping files</li><li>Automatic updates</li></ul>]]></description>
+      <enclosure url="https://github.com/adigold/GridStudio/releases/download/v1.0.0/Grid-Studio-1.0.0.zip" type="application/octet-stream" sparkle:edSignature="8xpEq0FOA3hvXbxf/B8XzTrer8RPhU9zPFzLKHYcpSEH8hBUXnaCbFyuHRk0KHfEh+fcMkj8J+iObW+hibA8AQ==" length="2389412" />
+    </item>
   </channel>
 </rss>
