@@ -9,6 +9,7 @@
 #   3. zips it and signs the zip with the Sparkle key from your keychain
 #   4. adds the version to appcast.xml, commits, tags and pushes
 #   5. creates the GitHub release with the zip attached
+#   6. updates the Homebrew cask (adigold/homebrew-gridstudio) to the new version
 #
 # One time setup on the release Mac:
 #   xcrun notarytool store-credentials GridStudio-notary --apple-id <you> --team-id <TEAM> --password <app specific password>
@@ -63,4 +64,13 @@ git tag "v$NEW"
 git push origin "v$NEW"        # the tag first, so the release points at this commit
 gh release create "v$NEW" "$ZIP" --repo "$REPO" --verify-tag --title "Grid Studio $NEW" --notes "$NOTES"
 git push origin HEAD           # appcast goes live last, after the zip is downloadable
+
+# Homebrew: point the cask in adigold/homebrew-gridstudio at the new zip.
+SHA="$(shasum -a 256 "$ZIP" | awk '{print $1}')"
+TAP="$(mktemp -d)"
+gh repo clone adigold/homebrew-gridstudio "$TAP" -- -q
+sed -i '' -e "s/^  version \".*\"/  version \"$NEW\"/" -e "s/^  sha256 \".*\"/  sha256 \"$SHA\"/" "$TAP/Casks/grid-studio.rb"
+git -C "$TAP" commit -qam "grid-studio $NEW"
+git -C "$TAP" push -q origin HEAD
+rm -rf "$TAP"
 echo "Released $NEW. Running copies will offer the update on their next launch."

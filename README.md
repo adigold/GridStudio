@@ -12,6 +12,7 @@
 
 <p align="center">
   <a href="https://github.com/adigold/GridStudio/releases/latest"><b>Download for macOS</b></a> ·
+  <a href="#install">Homebrew</a> ·
   <a href="#the-layouts">Layouts</a> ·
   <a href="#editing-a-pad">Pad editor</a> ·
   <a href="#lights-and-led-feedback">LED feedback</a> ·
@@ -37,6 +38,16 @@
 Tested with a monome grid 128 (16 x 8). The driver reads the grid's size when it connects, so 64 (8 x 8) and 256 (16 x 16) grids should work through the same code, but they have not been tested yet. Reports welcome.
 
 ## Install
+
+**With Homebrew:**
+
+```sh
+brew tap adigold/gridstudio
+brew trust adigold/gridstudio
+brew install --cask grid-studio
+```
+
+**Or by hand:**
 
 1. Download the latest `Grid-Studio-x.y.z.zip` from [Releases](https://github.com/adigold/GridStudio/releases/latest).
 2. Unzip it and drag **Grid Studio** into your Applications folder.

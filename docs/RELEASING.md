@@ -36,6 +36,7 @@ The script:
 2. sends it to Apple for notarization and staples the ticket,
 3. zips it and signs the zip with the Sparkle key,
 4. adds an entry to `appcast.xml`, commits it and tags `v1.1.0`,
-5. creates the GitHub release with the zip attached, then pushes, so the update only goes live once the download exists.
+5. creates the GitHub release with the zip attached, then pushes, so the update only goes live once the download exists,
+6. updates the Homebrew cask in [adigold/homebrew-gridstudio](https://github.com/adigold/homebrew-gridstudio) with the new version and checksum.
 
 Version numbers must always go up (1.0.0 → 1.0.1 → 1.1.0). Sparkle compares them to decide what is newer.
