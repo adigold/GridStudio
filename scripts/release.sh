@@ -60,6 +60,7 @@ PY
 git add VERSION appcast.xml
 git commit -m "Release $NEW"
 git tag "v$NEW"
-gh release create "v$NEW" "$ZIP" --repo "$REPO" --title "Grid Studio $NEW" --notes "$NOTES"
-git push origin HEAD "v$NEW"   # appcast goes live last, after the zip is downloadable
+git push origin "v$NEW"        # the tag first, so the release points at this commit
+gh release create "v$NEW" "$ZIP" --repo "$REPO" --verify-tag --title "Grid Studio $NEW" --notes "$NOTES"
+git push origin HEAD           # appcast goes live last, after the zip is downloadable
 echo "Released $NEW. Running copies will offer the update on their next launch."
